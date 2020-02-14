@@ -34,14 +34,18 @@ public class MessageData {
 		super();
 	}
 
-	public MessageData(Long messageId, byte[] payload, Date published, Date processedDate) {
+	public MessageData(byte[] payload, Date published, Date processedDate) {
 		super();
-		this.messageId = messageId;
 		this.payload = payload;
 		this.published = published;
 		this.processedDate = processedDate;
 	}
-
+	
+	public MessageData(Long messageId, byte[] payload, Date published, Date processedDate) {
+		this(payload, published, processedDate);
+		this.messageId = messageId;
+	}
+	
 	public Long getMessageId() {
 		return messageId;
 	}

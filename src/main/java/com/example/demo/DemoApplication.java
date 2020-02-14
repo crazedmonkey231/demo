@@ -63,7 +63,6 @@ public class DemoApplication {
 	public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
 		transactionManager.setEntityManagerFactory(emf);
-
 		return transactionManager;
 	}
 
@@ -86,8 +85,8 @@ public class DemoApplication {
 	public CommandLineRunner demo(MessageDataRepository repository) {
 		return (args) -> {
 			// save a few
-			repository.save(new MessageData(1L, new byte[10], new Date(), new Date()));
-			repository.save(new MessageData(2L, new byte[10], new Date(), new Date()));
+			repository.save(new MessageData(new byte[10], new Date(), new Date()));
+			repository.save(new MessageData(new byte[10], new Date(), new Date()));
 
 			// fetch all
 			log.info("Customers found with findAll():");
